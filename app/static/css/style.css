@@ -1,0 +1,201 @@
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+  }
+
+  .banner {
+    background-color: #324960;
+    color: #fff;
+    text-align: center;
+    font-size: 36px;
+    padding: 20px;
+    margin-bottom: 10px;
+  }
+
+  .button {
+    display: block; 
+    margin: 0 auto;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between; /* Distribute space between buttons */
+}
+
+  div{
+    margin-bottom: 10px;
+  }
+
+  table {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+  }
+
+  th, td {
+    text-align: center;
+    padding: 8px;
+  }
+  
+  td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 14px;
+  }
+
+  th {
+    color: #ffffff;
+    background: #4FC3A1;
+  }
+  
+  th:first-child,
+  td:first-child {
+    text-align: left;
+  }
+  th:nth-child(2),
+  td:nth-child(2) {
+    text-align: left;
+  }
+
+  th:nth-child(even) {
+    color: #ffffff;
+    background: #324960;
+  }
+
+  tr:nth-child(even) {
+    background: #F8F8F8;
+  }
+  
+  .red{background-color: #c02551;}
+  .red:hover{background-color: #9e153c;}
+  .green{background-color: #4CAF50;}
+  .green:hover{background-color: #2c8d2f;}
+  .info{background-color: cadetblue;}
+  .info:hover{background-color: rgb(61, 125, 127);}
+
+  #response {
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+
+  #response h2 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 10px;
+  }
+
+  #response p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 10px;
+  }
+
+  select {
+    width: 100%; /* Make the select element take up the full width of its container */
+    padding: 5px; /* Add some padding for better spacing */
+    font-size: 12px; /* Adjust the font size as needed */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 5px; /* Add rounded corners to the select box */
+    background-color: #f9f9f9; /* Set the background color */
+    color: #333; /* Set the text color */
+  }
+  
+  /* Style the options within the select */
+  select option {
+    font-size: 12px; /* Adjust the font size as needed */
+    padding: 5px; /* Add padding to the options for better spacing */
+    background-color: #fff; /* Set the background color of options */
+    color: #333; /* Set the text color of options */
+  }
+  
+  /* Apply additional styles when the select is focused (clicked) */
+  select:focus {
+    outline: none; /* Remove the default focus outline */
+    box-shadow: 0 0 5px #0099cc; /* Add a subtle box shadow when focused */
+  }
+
+/* POPUP */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.popup-content {
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  max-height: 80%;
+  max-width: 80%;
+  overflow-y: auto;
+  text-align: left;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+/* BANNER */
+/* https://www.youtube.com/watch?v=MH7rI6vuasE */
+.text {
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+  transform: translateY(-50%);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+.text:hover {
+  transform: rotateX(35deg), translateY(-50%);
+}
+.text:hover span {
+  color: #ccc;
+}
+.text:hover span:nth-child(odd) {
+  transform: skewY(15deg);
+}
+.text:hover span:nth-child(even) {
+  transform: skewY(-15deg);
+  background-color: #f9f9f9;
+  color: #a6a6a6;
+}
+.text > span {
+  display: block;
+  background-color: #fff;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  box-shadow: 0 40px 50px rgba(0, 0, 0, 0.1);
+}
+.text > span:first-child {
+  border-radius: 5px 0 0 5px;
+}
+

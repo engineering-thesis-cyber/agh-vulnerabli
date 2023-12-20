@@ -1,0 +1,23 @@
+<tr>
+    <td>Lab NUMBER - APP_NAME</td>
+    <td>
+        Placeholder for custom application
+        <button class="button info" onclick="openPopup('./static/assets/writeups/writeup_labID.md')">Walkthrough</button>
+        <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <div id="markdown-content"></div>
+        </div>
+        </div>
+    </td>
+    <td><input type="number" id="machine-copiesID" name="quantity" min="1" max="20"></td>
+    <td><button class="button green" onclick="createPod(ID)">Create</button></td>
+    <td><button class="button red" onclick="deletePod(ID)">Delete</button></td>
+    <td><button class="button info" onclick="info(ID)" id="labID">Info</button></td>
+    <td id="runningID">
+        <select id="machinesID" name="machinesID">
+        <option value="NA">NA</option>
+        </select>
+    </td>
+    <td><button class="button restart" onclick="restart(ID)" id="labID">Restart</button></td>
+</tr>

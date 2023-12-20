@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Automated Enviroment</title>
+    <link rel="icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <div class="banner">
+      <div class="text">
+        <span>V</span>
+        <span>U</span>
+        <span>L</span>
+        <span>N</span>
+        <span>E</span>
+        <span>R</span>
+        <span>A</span>
+        <span>B</span>
+        <span>L</span>
+        <span>I</span>
+      </div>
+    </div>
+      <!-- Automated enviroment for vulnerability analysis -->
+    </div>
+    <div class="description">
+      <div class="button-container">
+          <button class="button red" onclick="logout()" id="logout" scr>Logout</button>
+          <button class="button info" onclick="description()" id="description">Description</button>
+      </div>
+    </div>
+    <div class="content">
+      <table>
+        <thead>
+            <tr>
+              <th>Lab name</th>
+              <th>Description</th>
+              <th>Copies</th>
+              <th>Create</th>
+              <th>Delete ALL</th>
+              <th>Info</th>
+              <th>Running</th>
+              <th>Restart</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in data %}
+                <tr>
+                    <td>{{ entry.name | safe }}</td>
+                    <td>{{ entry.description | safe }}</td>
+                    <td>{{ entry.copies | safe }}</td>
+                    <td>{{ entry.create | safe }}</td>
+                    <td>{{ entry.delete | safe }}</td>
+                    <td>{{ entry.info | safe }}</td>
+                    <td>{{ entry.running | safe }}</td>
+                    <td>{{ entry.reset | safe }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div id="response"><p>All responses will be shown here</p></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="{{ url_for('serve_js_calls') }}"></script>
+    <script src="{{ url_for('serve_js_utils') }}"></script>
+    <script src="{{ url_for('serve_onloadscript') }}"></script>
+  </body>
+</html>

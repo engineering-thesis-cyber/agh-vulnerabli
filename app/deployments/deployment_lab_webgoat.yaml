@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: NUMBER-APP_NAME-deployment
+spec:
+  selector:
+    matchLabels:
+      app: NUMBER-APP_NAME-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: NUMBER-APP_NAME-app
+    spec:
+      containers:
+      - name: NUMBER-APP_NAME-app
+        image: webgoat/webgoat:latest
+        env:
+        - name: TZ
+          value: "Europe/Amsterdam"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lab-NUMBER-APP_NAME-service
+spec:
+  selector:
+    app: NUMBER-APP_NAME-app
+  type: ClusterIP
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-path-NUMBER-APP_NAME
+  annotations:
+    # If the class annotation is not specified it defaults to "gce".
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: "/$1"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /(WebGoat(?:/|$).*)
+        pathType: Prefix
+        backend:
+          service:
+            name: lab-NUMBER-APP_NAME-service
+            port:
+              number: 80
